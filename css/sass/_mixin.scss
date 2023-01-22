@@ -1,0 +1,169 @@
+// <<====== mixin =======>>
+
+@use 'variables' as *;
+
+// resize
+@mixin breakpoints($point) {
+    @if $point == mobile {
+        @media (max-width: 576px) {
+            @content;
+        }
+    } @else if $point == small {
+        @media (min-width: 577px) and (max-width: 767px) {
+            @content;
+        }
+    } @else if $point == medium {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    } @else if $point == large {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    } @else if $point == x-large {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+// resize
+@mixin break($point) {
+    @if $point == x-small {
+        @media (max-width: 375px) {
+            @content;
+        }
+    } @else if $point == mobile {
+        @media (max-width: 576px) {
+            @content;
+        }
+    } @else if $point == small {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } @else if $point == medium {
+        @media (max-width: 991px) {
+            @content;
+        }
+    } @else if $point == large {
+        @media (max-width: 1199px) {
+            @content;
+        }
+    } @else if $point == x-large {
+        @media (max-width: 1399px) {
+            @content;
+        }
+    }
+}
+
+// hover image
+@mixin imageAnimeParent($pers) {
+    position: relative;
+    overflow: hidden;
+    perspective: $pers;
+    transform-style: preserve-3d;
+}
+@mixin imageAnime($url, $trsns, $scale) {
+    background: transparent url($url) bottom right no-repeat;
+    transform: translateZ($trsns) perspective(100px) scale($scale);
+    transition: all 1s ease;
+}
+
+// before and after
+@mixin beforeAndAfter {
+    content: '';
+    position: absolute;
+    width: 101%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+// main button
+@mixin mainButton {
+    background-color: $main-color;
+    color: $font-color;
+    padding: 20px 50px;
+    border-radius: 40px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.45s ease;
+    display: inline-block;
+    line-height: normal;
+    &:hover {
+        background-color: $font-color;
+        color: #fff;
+    }
+}
+
+// center position
+@mixin centerPosition {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// center flex
+@mixin centerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// center flex
+@mixin flexJustBet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+// animation ===>
+@keyframes banner {
+    0% {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    30% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    60% {
+        transform: rotate3d(1, 0, 0, 0deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+}
+
+@keyframes playMover {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    25%, 70% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+@keyframes feature {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-30px);
+    }
+}
+
+// circle
+@mixin circle($width) {
+    width: $width;
+    height: $width;
+    border-radius: 50%;
+}
