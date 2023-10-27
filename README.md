@@ -1,2 +1,2 @@
 # Appyng
-Appyg template HTML, (CSS, SASS) and JavaScript.
+Appyng template HTML, (CSS, SASS) and JavaScript.
